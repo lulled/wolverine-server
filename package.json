@@ -1,11 +1,16 @@
 {
   "name": "app",
   "version": "1.0.50",
+  "type": "module",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
-    "dev": "bun run --watch src/index.ts"
+    "build": "bun build src/index.ts --outfile=dist/index.js",
+    "start": "bun run dist/index.js",
+    "dev": "bun run build && bun run start"
   },
   "dependencies": {
+    "@elysiajs/cors": "^1.1.1",
+    "@sanity/client": "^6.22.1",
+    "@sanity/image-url": "^1.0.2",
     "elysia": "latest"
   },
   "devDependencies": {
