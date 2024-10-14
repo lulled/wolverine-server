@@ -18887,21 +18887,22 @@ var cors = (config6) => {
 
 // src/index.ts
 var app = new Elysia().use(cors({
-  origin: ["http://localhost:1420", "tauri://localhost"],
+  origin: ["http://localhost:1420", "tauri://localhost", "https://your-tauri-app-domain.com"],
   methods: ["GET", "POST", "PUT", "DELETE", "OPTIONS"],
   allowedHeaders: ["Content-Type", "Authorization"],
   credentials: true
 })).get("/", () => "Hello Elysia").get("/api/data", async () => {
   try {
     const data = await justpull();
+    console.log("Data fetched from Sanity:", data);
     return { success: true, data };
   } catch (error23) {
     console.error("Error fetching data:", error23);
-    return { success: false, error: "Failed to fetch data" };
+    return { success: false, error: error23.message };
   }
 }).listen(3010);
 var menT_shirts = new Elysia().use(cors({
-  origin: ["http://localhost:1420", "tauri://localhost"],
+  origin: ["tauri://localhost", "https://your-tauri-app-domain.com", "http://localhost:1420"],
   methods: ["GET", "POST", "PUT", "DELETE", "OPTIONS"],
   allowedHeaders: ["Content-Type", "Authorization"],
   credentials: true
@@ -18914,4 +18915,4 @@ var menT_shirts = new Elysia().use(cors({
     return { success: false, error: "Failed to fetch data" };
   }
 }).listen(3011);
-console.log(`\uD83E\uDD8A Elysia is running at ${app.server?.hostname}:${app.server?.port}`, `and at${menT_shirts.server?.hostname}:${menT_shirts.server?.port} `);
+console.log(`\uD83E\uDD8A Elysia is running at ${app.server?.hostname}:${app.server?.port}`, `and at ${menT_shirts.server?.hostname}:${menT_shirts.server?.port} `);

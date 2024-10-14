@@ -5,7 +5,7 @@ import { cors } from '@elysiajs/cors'
 
 const app = new Elysia()
 .use(cors({
-  origin: ['http://localhost:1420', 'tauri://localhost'],
+  origin: ['http://localhost:1420', 'tauri://localhost','https://your-tauri-app-domain.com'],
   methods: ['GET', 'POST', 'PUT', 'DELETE', 'OPTIONS'],
   allowedHeaders: ['Content-Type', 'Authorization'],
   credentials: true,
@@ -14,10 +14,11 @@ const app = new Elysia()
   .get("/api/data", async () => {
     try {
       const data = await justpull();
+      console.log('Data fetched from Sanity:', data);
       return { success: true, data };
     } catch (error) {
       console.error("Error fetching data:", error);
-      return { success: false, error: "Failed to fetch data" };
+      return { success: false, error: error.message };
     }
   })
   .listen(3010);
@@ -27,7 +28,7 @@ const app = new Elysia()
 //wat happens we i do this , define more add more  sever instances here with Different  names 
 const menT_shirts = new Elysia()
 .use(cors({
-  origin: ['http://localhost:1420', 'tauri://localhost'],
+  origin: ['tauri://localhost', 'https://your-tauri-app-domain.com','http://localhost:1420'],
   methods: ['GET', 'POST', 'PUT', 'DELETE', 'OPTIONS'],
   allowedHeaders: ['Content-Type', 'Authorization'],
   credentials: true,
