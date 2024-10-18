@@ -5,7 +5,7 @@ import { cors } from '@elysiajs/cors'
 
 const app = new Elysia()
 .use(cors({
-  origin: ['http://localhost:1420', 'tauri://localhost','https://your-tauri-app-domain.com'],
+  origin: ['http://localhost:3000', 'https://wolverine-server.onrender.com'],
   methods: ['GET', 'POST', 'PUT', 'DELETE', 'OPTIONS'],
   allowedHeaders: ['Content-Type', 'Authorization'],
   credentials: true,
