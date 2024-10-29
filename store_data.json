@@ -1,0 +1,429 @@
+[
+  {
+    "images": [
+      {
+        "_type": "image",
+        "_sanityAsset": "image@file:///Users/lule/Downloads/compressedandhashed/boyfriend-jeans/IMG_2047.jpg"
+      }
+    ],
+    "name": "Rugged Denim Distressed Jeans",
+    "description": "Elevate your street style with these Rugged Denim Distressed Jeans. Featuring bold rips and a relaxed fit, they offer a perfect blend of comfort and edge. Ideal for casual outings or concerts, pair them with a graphic tee and sneakers for an effortlessly trendy look. Designed for those who love to stand out, these jeans are a must-have for your wardrobe.",
+    "productID": "87a233",
+    "productcategory": "boyfriend-jeans",
+    "imageHashes": [
+      {
+        "fileName": "IMG_2047.jpg",
+        "hash": "aadda15b39d39fdf4c3caea7d584bc5ec88574e55cef42da4e859beb7244e4d7"
+      }
+    ],
+    "supplier": {
+      "phonenumber": "+256759697007",
+      "whatsAppnumber": "+256759697007",
+      "wholesaleprice": "",
+      "location": "Ham shopping-grounds Block-T ",
+      "Friendliness": 5,
+      "source": "china-direct",
+      "capacity": 4,
+      "shippedFrom": "kampala",
+      "supplierId": ""
+    },
+    "price": 50000,
+    "originalPrice": 45000,
+    "_createdAt": "2024-09-29T19:16:52.251Z",
+    "_id": "55ac42e9-1121-4bdf-b222-ca94fa311038",
+    "_updatedAt": "2024-09-29T19:16:52.251Z",
+    "_type": "bulkproductuploads",
+    "dateofintroduction": "2024-09-29T19:16:52.251Z",
+    "readilyAvailable": true,
+    "downloadable": true,
+    "shippedFromkampala": false,
+    "availableInHouse": true,
+    "initialBatch": "true",
+    "subsquentBatch": "",
+    "comesWith": ""
+  },
+  {
+    "images": [
+      {
+        "_type": "image",
+        "_sanityAsset": "image@file:///Users/lule/Downloads/compressedandhashed/boyfriend-jeans/IMG_2068.jpg"
+      }
+    ],
+    "name": "Bold Blue Cargo Pants",
+    "description": "Step out in style with these Bold Blue Cargo Pants. Featuring a relaxed fit and multiple pockets, they combine comfort and functionality. The distressed details add a trendy touch, perfect for casual outings or adventures. Pair with a simple tee and sneakers for a laid-back look. Ideal for fashion-forward individuals who appreciate versatility and uniqueness in their wardrobe.",
+    "productID": "6c6e5c",
+    "productcategory": "boyfriend-jeans",
+    "imageHashes": [
+      {
+        "fileName": "IMG_2068.jpg",
+        "hash": "a3a060922d222cb6cacee58d688c99ea1a66497ec2ef7720d755179697123645"
+      }
+    ],
+    "supplier": {
+      "phonenumber": "+256759697007",
+      "whatsAppnumber": "+256759697007",
+      "wholesaleprice": "",
+      "location": "Ham shopping-grounds Block-T ",
+      "Friendliness": 5,
+      "source": "china-direct",
+      "capacity": 4,
+      "shippedFrom": "kampala",
+      "supplierId": ""
+    },
+    "price": 50000,
+    "originalPrice": 45000,
+    "_createdAt": "2024-09-29T19:16:58.182Z",
+    "_id": "5bba8598-6042-4c21-812c-fcdd4eea805c",
+    "_updatedAt": "2024-09-29T19:16:58.182Z",
+    "_type": "bulkproductuploads",
+    "dateofintroduction": "2024-09-29T19:16:58.182Z",
+    "readilyAvailable": true,
+    "downloadable": true,
+    "shippedFromkampala": false,
+    "availableInHouse": true,
+    "initialBatch": "true",
+    "subsquentBatch": "",
+    "comesWith": ""
+  },
+  {
+    "images": [
+      {
+        "_type": "image",
+        "_sanityAsset": "image@file:///Users/lule/Downloads/compressedandhashed/*2 16.42.36/IMG_2993.JPG"
+      },
+      {
+        "_type": "image",
+        "_sanityAsset": "image@file:///Users/lule/Downloads/compressedandhashed/*2 16.42.36/IMG_2994.JPG"
+      }
+    ],
+    "name": "Vintage Varsity Jacket",
+    "description": "Embrace retro style with this Vintage Varsity Jacket featuring a stylish olive green body and bold white sleeves. The eye-catching 'H' emblem and sporty stripes add a touch of charm. Perfect for casual outings or sporting events, layer it over your favorite tee for a trendy look. Ideal for students and fans of vintage fashion, this jacket combines comfort with classic appeal.",
+    "productID": "6e1dc9",
+    "productcategory": "baseball",
+    "imageHashes": [
+      {
+        "fileName": "IMG_2993.JPG",
+        "hash": "8728e7af8b9ed2ebeb565e6072456fc7c1db1cbaea7def61b5d2220b6b557d42"
+      },
+      {
+        "fileName": "IMG_2994.JPG",
+        "hash": "26b30fc70e83b389c6368c981f30e0d3ba6a3c373d77037a8b6024f4e536837a"
+      }
+    ],
+    "supplier": {
+      "phonenumber": "+256759697007",
+      "whatsAppnumber": "+256759697007",
+      "wholesaleprice": "",
+      "location": "Ham shopping-grounds Block-T ",
+      "Friendliness": 5,
+      "source": "china-direct",
+      "capacity": 4,
+      "shippedFrom": "kampala",
+      "supplierId": ""
+    },
+    "price": 50000,
+    "originalPrice": 45000,
+    "_createdAt": "2024-09-29T19:17:03.707Z",
+    "_id": "e99a3933-8163-4709-9030-fbf333d8e025",
+    "_updatedAt": "2024-09-29T19:17:03.707Z",
+    "_type": "bulkproductuploads",
+    "dateofintroduction": "2024-09-29T19:17:03.707Z",
+    "readilyAvailable": true,
+    "downloadable": true,
+    "shippedFromkampala": false,
+    "availableInHouse": true,
+    "initialBatch": "true",
+    "subsquentBatch": "",
+    "comesWith": ""
+  },
+  {
+    "images": [
+      {
+        "_type": "image",
+        "_sanityAsset": "image@file:///Users/lule/Downloads/compressedandhashed/baseball-jackets/*/IMG_3013.JPG"
+      },
+      {
+        "_type": "image",
+        "_sanityAsset": "image@file:///Users/lule/Downloads/compressedandhashed/baseball-jackets/*/IMG_3010.JPG"
+      }
+    ],
+    "name": "Bold Red Hustle Jacket",
+    "description": "Make a statement with the Bold Red Hustle Jacket! Crafted from shiny fabric, it features striking white lettering on the back, perfect for showcasing your drive. The sporty striped collar adds a trendy touch. Ideal for casual outings or a night out with friends. Pair it with jeans or joggers for an effortlessly cool look. Designed for those who embrace their hustle with style!",
+    "productID": "3a5332",
+    "productcategory": "baseball",
+    "imageHashes": [
+      {
+        "fileName": "IMG_3013.JPG",
+        "hash": "74864c78a125b251fc5ad8f16ed39f998297d9ed4632c5113af1d69c6643b50d"
+      },
+      {
+        "fileName": "IMG_3010.JPG",
+        "hash": "b0a21645ec038b35bcc225d650248d2ab8136aacb6c37e1ac97364f24eb6e573"
+      }
+    ],
+    "supplier": {
+      "phonenumber": "+256759697007",
+      "whatsAppnumber": "+256759697007",
+      "wholesaleprice": "",
+      "location": "Ham shopping-grounds Block-T ",
+      "Friendliness": 5,
+      "source": "china-direct",
+      "capacity": 4,
+      "shippedFrom": "kampala",
+      "supplierId": ""
+    },
+    "price": 50000,
+    "originalPrice": 45000,
+    "_createdAt": "2024-09-29T19:17:08.053Z",
+    "_id": "aaf7b069-63f6-4305-876b-1876873030d6",
+    "_updatedAt": "2024-09-29T19:17:08.053Z",
+    "_type": "bulkproductuploads",
+    "dateofintroduction": "2024-09-29T19:17:08.053Z",
+    "readilyAvailable": true,
+    "downloadable": true,
+    "shippedFromkampala": false,
+    "availableInHouse": true,
+    "initialBatch": "true",
+    "subsquentBatch": "",
+    "comesWith": ""
+  },
+  {
+    "images": [
+      {
+        "_type": "image",
+        "_sanityAsset": "image@file:///Users/lule/Downloads/compressedandhashed/baseball-jackets/*5/IMG_3004.JPG"
+      },
+      {
+        "_type": "image",
+        "_sanityAsset": "image@file:///Users/lule/Downloads/compressedandhashed/baseball-jackets/*5/IMG_3002.JPG"
+      }
+    ],
+    "name": "Blue Varsity Jacket",
+    "description": "Show off your style with this eye-catching blue varsity jacket featuring a bold 'E' and motivational embroidery. Perfect for casual outings, it pairs well with jeans and sneakers. Ideal for students and sports enthusiasts looking for comfort and flair. Make a statement while staying warm—don’t miss out on this unique piece!",
+    "productID": "920dda",
+    "productcategory": "baseball",
+    "imageHashes": [
+      {
+        "fileName": "IMG_3004.JPG",
+        "hash": "567ad29509ef9ea1d9dd2b5bbf8918b3cc9900549d7e35c4063854a40d8a4473"
+      },
+      {
+        "fileName": "IMG_3002.JPG",
+        "hash": "bd0f54c899d6064f1dd1f6d4ed76074885100f187e38af57312b7cd2a757219f"
+      }
+    ],
+    "supplier": {
+      "phonenumber": "+256759697007",
+      "whatsAppnumber": "+256759697007",
+      "wholesaleprice": "",
+      "location": "Ham shopping-grounds Block-T ",
+      "Friendliness": 5,
+      "source": "china-direct",
+      "capacity": 4,
+      "shippedFrom": "kampala",
+      "supplierId": ""
+    },
+    "price": 50000,
+    "originalPrice": 45000,
+    "_createdAt": "2024-09-29T19:17:12.566Z",
+    "_id": "189a5557-0075-4881-b9b8-298dd61fae49",
+    "_updatedAt": "2024-09-29T19:17:12.566Z",
+    "_type": "bulkproductuploads",
+    "dateofintroduction": "2024-09-29T19:17:12.566Z",
+    "readilyAvailable": true,
+    "downloadable": true,
+    "shippedFromkampala": false,
+    "availableInHouse": true,
+    "initialBatch": "true",
+    "subsquentBatch": "",
+    "comesWith": ""
+  },
+  {
+    "images": [
+      {
+        "_type": "image",
+        "_sanityAsset": "image@file:///Users/lule/Downloads/compressedandhashed/baseball-jackets/*4/IMG_3009.JPG"
+      },
+      {
+        "_type": "image",
+        "_sanityAsset": "image@file:///Users/lule/Downloads/compressedandhashed/baseball-jackets/*4/IMG_3007.JPG"
+      }
+    ],
+    "name": "Sunset Park Varsity Jacket",
+    "description": "Elevate your casual style with the Sunset Park Varsity Jacket. Featuring a warm brown body with classic white sleeves, this jacket is perfect for cool evenings. Its embroidered back adds a touch of uniqueness. Pair it with jeans and sneakers for a laid-back look or wear it over a hoodie for extra warmth. Ideal for students and anyone who loves street style!",
+    "productID": "08c650",
+    "productcategory": "baseball",
+    "imageHashes": [
+      {
+        "fileName": "IMG_3009.JPG",
+        "hash": "2baf1f66c60338166dde940a94b7a256534ce26f0e77714a2740b8f5197d5832"
+      },
+      {
+        "fileName": "IMG_3007.JPG",
+        "hash": "6854ccc64c6c6539674961b01720b6ac019811e8ae2965dd969e0217035544c5"
+      }
+    ],
+    "supplier": {
+      "phonenumber": "+256759697007",
+      "whatsAppnumber": "+256759697007",
+      "wholesaleprice": "",
+      "location": "Ham shopping-grounds Block-T ",
+      "Friendliness": 5,
+      "source": "china-direct",
+      "capacity": 4,
+      "shippedFrom": "kampala",
+      "supplierId": ""
+    },
+    "price": 50000,
+    "originalPrice": 45000,
+    "_createdAt": "2024-09-29T19:17:16.881Z",
+    "_id": "001ba24c-2167-415b-be16-326221bd5f98",
+    "_updatedAt": "2024-09-29T19:17:16.881Z",
+    "_type": "bulkproductuploads",
+    "dateofintroduction": "2024-09-29T19:17:16.881Z",
+    "readilyAvailable": true,
+    "downloadable": true,
+    "shippedFromkampala": false,
+    "availableInHouse": true,
+    "initialBatch": "true",
+    "subsquentBatch": "",
+    "comesWith": ""
+  },
+  {
+    "images": [
+      {
+        "_type": "image",
+        "_sanityAsset": "image@file:///Users/lule/Downloads/compressedandhashed/baseball-jackets/*3/IMG_3057.JPG"
+      },
+      {
+        "_type": "image",
+        "_sanityAsset": "image@file:///Users/lule/Downloads/compressedandhashed/baseball-jackets/*3/IMG_3059 2.JPG"
+      }
+    ],
+    "name": "Bold Tiger Varsity Jacket",
+    "description": "Step out in style with the Bold Tiger Varsity Jacket, featuring a striking tiger embroidery and a sporty black and white design. Perfect for casual outings or layering over a hoodie, this eye-catching jacket is ideal for young trendsetters. Its lightweight material ensures comfort, while the snap-button closure adds a classic touch. Available in various sizes, it's the perfect addition to any wardrobe!",
+    "productID": "4a6126",
+    "productcategory": "baseball",
+    "imageHashes": [
+      {
+        "fileName": "IMG_3057.JPG",
+        "hash": "e7068966b18bc60fd08f33421fd2684dab8fb90d2f17fc836df1ff479ab3093d"
+      },
+      {
+        "fileName": "IMG_3059 2.JPG",
+        "hash": "0c1ce5cca9fbb718dc7a418506400e95fb3ec12b27efa295d3c472dbcc620ee7"
+      }
+    ],
+    "supplier": {
+      "phonenumber": "+256759697007",
+      "whatsAppnumber": "+256759697007",
+      "wholesaleprice": "",
+      "location": "Ham shopping-grounds Block-T ",
+      "Friendliness": 5,
+      "source": "china-direct",
+      "capacity": 4,
+      "shippedFrom": "kampala",
+      "supplierId": ""
+    },
+    "price": 50000,
+    "originalPrice": 45000,
+    "_createdAt": "2024-09-29T19:17:22.700Z",
+    "_id": "ff83e106-277f-4823-b695-56a0eef86cf0",
+    "_updatedAt": "2024-09-29T19:17:22.700Z",
+    "_type": "bulkproductuploads",
+    "dateofintroduction": "2024-09-29T19:17:22.700Z",
+    "readilyAvailable": true,
+    "downloadable": true,
+    "shippedFromkampala": false,
+    "availableInHouse": true,
+    "initialBatch": "true",
+    "subsquentBatch": "",
+    "comesWith": ""
+  },
+  {
+    "images": [
+      {
+        "_type": "image",
+        "_sanityAsset": "image@file:///Users/lule/Downloads/compressedandhashed/men-jeans/IMG_2985.JPG"
+      }
+    ],
+    "name": "Urban Graffiti Ripped Jeans",
+    "description": "Step up your street style with these Urban Graffiti Ripped Jeans. Featuring a sleek black base, vibrant red patches, and unique splatter details, they are perfect for making a bold statement. Ideal for casual outings or music festivals, pair them with a graphic tee and sneakers for a trendy look. Designed for those who love to stand out, these jeans combine comfort with edgy style.",
+    "productID": "0d9d30",
+    "productcategory": "men-jeans",
+    "imageHashes": [
+      {
+        "fileName": "IMG_2985.JPG",
+        "hash": "1fa727438cc219e87c274c376afbb01779c49b483d14321633d4dea92772f33f"
+      }
+    ],
+    "supplier": {
+      "phonenumber": "+256759697007",
+      "whatsAppnumber": "+256759697007",
+      "wholesaleprice": "",
+      "location": "Ham shopping-grounds Block-T ",
+      "Friendliness": 5,
+      "source": "china-direct",
+      "capacity": 4,
+      "shippedFrom": "kampala",
+      "supplierId": ""
+    },
+    "price": 50000,
+    "originalPrice": 45000,
+    "_createdAt": "2024-09-29T19:17:28.659Z",
+    "_id": "222564ba-c8cc-48ec-bc67-800d3e7e9d08",
+    "_updatedAt": "2024-09-29T19:17:28.659Z",
+    "_type": "bulkproductuploads",
+    "dateofintroduction": "2024-09-29T19:17:28.659Z",
+    "readilyAvailable": true,
+    "downloadable": true,
+    "shippedFromkampala": false,
+    "availableInHouse": true,
+    "initialBatch": "true",
+    "subsquentBatch": "",
+    "comesWith": ""
+  },
+  {
+    "images": [
+      {
+        "_type": "image",
+        "_sanityAsset": "image@file:///Users/lule/Downloads/compressedandhashed/men-jeans/IMG_2987 2.JPG"
+      }
+    ],
+    "name": "Urban Splash Black Ripped Jeans",
+    "description": "Make a bold statement with these Urban Splash Black Ripped Jeans. Featuring a trendy distressed design with striking red patches and playful paint splatters, these jeans are perfect for adventurous souls. Ideal for pairing with graphic tees and sneakers for a casual look or dressing up with a stylish top for a night out. Perfect for fashion-forward individuals looking to showcase their unique style.",
+    "productID": "83f6b6",
+    "productcategory": "men-jeans",
+    "imageHashes": [
+      {
+        "fileName": "IMG_2987 2.JPG",
+        "hash": "ff72597404fb63a650aad390749c1d29e168c32c49ae7435828efa46608c730b"
+      }
+    ],
+    "supplier": {
+      "phonenumber": "+256759697007",
+      "whatsAppnumber": "+256759697007",
+      "wholesaleprice": "",
+      "location": "Ham shopping-grounds Block-T ",
+      "Friendliness": 5,
+      "source": "china-direct",
+      "capacity": 4,
+      "shippedFrom": "kampala",
+      "supplierId": ""
+    },
+    "price": 50000,
+    "originalPrice": 45000,
+    "_createdAt": "2024-09-29T19:17:33.554Z",
+    "_id": "1eb3fbb2-05db-43a6-863d-e95fe342434a",
+    "_updatedAt": "2024-09-29T19:17:33.554Z",
+    "_type": "bulkproductuploads",
+    "dateofintroduction": "2024-09-29T19:17:33.554Z",
+    "readilyAvailable": true,
+    "downloadable": true,
+    "shippedFromkampala": false,
+    "availableInHouse": true,
+    "initialBatch": "true",
+    "subsquentBatch": "",
+    "comesWith": ""
+  }
+]

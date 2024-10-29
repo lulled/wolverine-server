@@ -18746,7 +18746,7 @@ async function grabT_shirts() {
   const response = fetch2;
   return response;
 }
-var query = `*[_type in ["catch-the-vibes","trending","men-T_shirts-latest","men-jeans-latest","shorts-latest","tops","vintage-shirts","boy-friend-jeans","Cargo-pants",]]{_id, _type, name,originalPrice,price, "imageUrl": image.asset->url}`;
+var query = `*[_type in ["catch-the-vibes","trending","men-T_shirts-latest","men-jeans-latest","shorts-latest","tops","vintage-shirts","boy-friend-jeans","Cargo-pants",]]{_id,_updatedAt, _type, name,originalPrice,price, "imageUrl": image.asset->url}`;
 var excludedIds = ["status-asset", "services-bg", "services-card2-bg", "trailoring-machines", "wholesale-bales"];
 var params = { excludedIds };
 justpull();
@@ -18886,8 +18886,31 @@ var cors = (config6) => {
 };
 
 // src/index.ts
+async function writeDataToFile(data) {
+  try {
+    await Bun.write(DATA_FILE_PATH, JSON.stringify(data, null, 2));
+    console.log("Data written to file successfully");
+  } catch (error23) {
+    console.error("Error writing to file:", error23);
+    throw error23;
+  }
+}
+async function readDataFromFile() {
+  try {
+    const file = Bun.file(DATA_FILE_PATH);
+    if (await file.exists()) {
+      const text = await file.text();
+      return JSON.parse(text);
+    }
+    return null;
+  } catch (error23) {
+    console.error("Error reading from file:", error23);
+    return null;
+  }
+}
+var DATA_FILE_PATH = "./store_data.json";
 var app = new Elysia().use(cors({
-  origin: ["http://localhost:1420", "tauri://localhost", "https://your-tauri-app-domain.com"],
+  origin: ["http://localhost:3000", "https://wolverine-server.onrender.com", "http://localhost"],
   methods: ["GET", "POST", "PUT", "DELETE", "OPTIONS"],
   allowedHeaders: ["Content-Type", "Authorization"],
   credentials: true
@@ -18900,19 +18923,38 @@ var app = new Elysia().use(cors({
     console.error("Error fetching data:", error23);
     return { success: false, error: error23.message };
   }
-}).listen(3010);
-var menT_shirts = new Elysia().use(cors({
-  origin: ["tauri://localhost", "https://your-tauri-app-domain.com", "http://localhost:1420"],
-  methods: ["GET", "POST", "PUT", "DELETE", "OPTIONS"],
-  allowedHeaders: ["Content-Type", "Authorization"],
-  credentials: true
-})).get("/", () => "hello from fashionate men-T-shirts").get("/api/t-shirtsStock", async () => {
-  try {
-    const data = await grabT_shirts();
-    return { success: true, data };
-  } catch (error23) {
-    console.error("Error fetching t-shirts data");
-    return { success: false, error: "Failed to fetch data" };
+}).post("/api/receive-data", async ({ body, request }) => {
+  console.log("Received request with method:", request.method);
+  console.log("Headers:", JSON.stringify(request.headers, null, 2));
+  console.log("Body type:", typeof body);
+  console.log("Is body an array?", Array.isArray(body));
+  let itemCount = 0;
+  if (Array.isArray(body)) {
+    itemCount = body.length;
+  } else if (typeof body === "object" && body !== null) {
+    itemCount = Object.keys(body).length;
   }
-}).listen(3011);
-console.log(`\uD83E\uDD8A Elysia is running at ${app.server?.hostname}:${app.server?.port}`, `and at ${menT_shirts.server?.hostname}:${menT_shirts.server?.port} `);
+  console.log("Processed item count:", itemCount);
+  try {
+    await writeDataToFile(body);
+  } catch (error23) {
+    console.error("Error writing data to file:", error23);
+    return { success: false, error: error23.message };
+  }
+  return {
+    message: "Data received, logged, and saved to file",
+    itemCount,
+    bodyType: typeof body,
+    isArray: Array.isArray(body),
+    sampleData: Array.isArray(body) ? body.slice(0, 2) : body
+  };
+}).get("/api/stored-data", async () => {
+  try {
+    const storedData = await readDataFromFile();
+    return { success: true, storedData };
+  } catch (error23) {
+    console.error("Error reading stored data:", error23);
+    return { success: false, error: error23.message };
+  }
+}).listen(3001);
+console.log(`\uD83E\uDD8A Elysia is running at ${app.server?.hostname}:${app.server?.port}`);
