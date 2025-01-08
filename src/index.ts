@@ -4,33 +4,33 @@ import { justpull, grabT_shirts, bulkproductuploads } from './fetch/fetch-sanity
 import { cors } from '@elysiajs/cors';
 import { insertDataIntoMongoDB } from './fetch/centraltruth.mjs'; // Import the MongoDB function
 
-const DATA_FILE_PATH = './store_data.json';
+//const DATA_FILE_PATH = './store_data.json';
 
-// Function to write data to file (optional, if you still want to keep this)
-async function writeDataToFile(data) {
-  try {
-    await Bun.write(DATA_FILE_PATH, JSON.stringify(data, null, 2));
-    console.log('Data written to file successfully');
-  } catch (error) {
-    console.error('Error writing to file:', error);
-    throw error;
-  }
-}
+// // Function to write data to file (optional, if you still want to keep this)
+// async function writeDataToFile(data) {
+//   try {
+//     await Bun.write(DATA_FILE_PATH, JSON.stringify(data, null, 2));
+//     console.log('Data written to file successfully');
+//   } catch (error) {
+//     console.error('Error writing to file:', error);
+//     throw error;
+//   }
+// // }
 
-// Function to read data from file (optional, if you still want to keep this)
-async function readDataFromFile() {
-  try {
-    const file = Bun.file(DATA_FILE_PATH);
-    if (await file.exists()) {
-      const text = await file.text();
-      return JSON.parse(text);
-    }
-    return null;
-  } catch (error) {
-    console.error('Error reading from file:', error);
-    return null;
-  }
-}
+// // Function to read data from file (optional, if you still want to keep this)
+// async function readDataFromFile() {
+//   try {
+//     const file = Bun.file(DATA_FILE_PATH);
+//     if (await file.exists()) {
+//       const text = await file.text();
+//       return JSON.parse(text);
+//     }
+//     return null;
+//   } catch (error) {
+//     console.error('Error reading from file:', error);
+//     return null;
+//   }
+// }
 
 const app = new Elysia()
   .use(cors({
@@ -56,6 +56,7 @@ const app = new Elysia()
     console.log('Headers:', JSON.stringify(request.headers, null, 2));
     console.log('Body type:', typeof body);
     console.log('Is body an array?', Array.isArray(body));
+    //console.log('Body:', JSON.stringify(body, null, 2));
     
     let itemCount = 0;
     if (Array.isArray(body)) {
