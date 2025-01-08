@@ -18746,11 +18746,18 @@ async function grabT_shirts() {
   const response = fetch2;
   return response;
 }
+async function bulkproductuploads() {
+  const query = `*[_type == "bulkproductuploads"]{_id, _type, name,originalPrice,currentPrice,productcategory,  "imageUrl": images[].asset->url}`;
+  const fetch2 = await sanity_config.default.fetch(query);
+  const response = fetch2;
+  return response;
+}
 var query = `*[_type in ["catch-the-vibes","trending","men-T_shirts-latest","men-jeans-latest","shorts-latest","tops","vintage-shirts","boy-friend-jeans","Cargo-pants",]]{_id,_updatedAt, _type, name,originalPrice,price, "imageUrl": image.asset->url}`;
 var excludedIds = ["status-asset", "services-bg", "services-card2-bg", "trailoring-machines", "wholesale-bales"];
 var params = { excludedIds };
 justpull();
 grabT_shirts();
+bulkproductuploads();
 
 // node_modules/@elysiajs/cors/dist/index.mjs
 var isBun2 = typeof new Headers()?.toJSON === "function";
@@ -18910,13 +18917,13 @@ async function readDataFromFile() {
 }
 var DATA_FILE_PATH = "./store_data.json";
 var app = new Elysia().use(cors({
-  origin: ["http://localhost:3000", "https://wolverine-server.onrender.com", "http://localhost"],
+  origin: ["http://localhost:3000", "https://wolverine-server.onrender.com", "http://localhost", "http://localhost:3040", "http://localhost:3002"],
   methods: ["GET", "POST", "PUT", "DELETE", "OPTIONS"],
   allowedHeaders: ["Content-Type", "Authorization"],
   credentials: true
 })).get("/", () => "Hello Elysia").get("/api/data", async () => {
   try {
-    const data = await justpull();
+    const data = await bulkproductuploads();
     console.log("Data fetched from Sanity:", data);
     return { success: true, data };
   } catch (error23) {

@@ -1,8 +1,7 @@
-// we connect as recievers ==> reading from the DB 
-const { MongoClient, ServerApiVersion } = require('mongodb');
-const uri = "mongodb+srv://lule:<db_password>@centraltruth.nlzmv.mongodb.net/?retryWrites=true&w=majority&appName=CentralTruth";
+// centraltruth.mjs
+import { MongoClient, ServerApiVersion } from 'mongodb';
 
-// Create a MongoClient with a MongoClientOptions object to set the Stable API version
+const uri =  "mongodb://root:example@localhost:27017";
 const client = new MongoClient(uri, {
   serverApi: {
     version: ServerApiVersion.v1,
@@ -11,16 +10,30 @@ const client = new MongoClient(uri, {
   }
 });
 
-async function run() {
+// Function to insert data into MongoDB
+export async function insertDataIntoMongoDB(data) {
   try {
-    // Connect the client to the server	(optional starting in v4.7)
     await client.connect();
-    // Send a ping to confirm a successful connection
-    await client.db("admin").command({ ping: 1 });
-    console.log("Pinged your deployment. You successfully connected to MongoDB!");
+    const database = client.db("CentralTruth");
+    const collection = database.collection("CentralTruth-1");
+
+    let result;
+    if (Array.isArray(data)) {
+      // If data is an array, use insertMany
+      result = await collection.insertMany(data);
+      console.log(`Inserted ${result.insertedCount} documents`);
+    } else {
+      // If data is a single object, use insertOne
+      result = await collection.insertOne(data);
+      console.log(`Data inserted with _id: ${result.insertedId}`);
+    }
+
+    return result;
+  } catch (error) {
+    console.error('Error inserting data into MongoDB:', error.message);
+    console.error('Error details:', error);
+    throw error;
   } finally {
-    // Ensures that the client will close when you finish/error
     await client.close();
   }
 }
-run().catch(console.dir);

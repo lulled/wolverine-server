@@ -3,49 +3,6 @@
     "images": [
       {
         "_type": "image",
-        "_sanityAsset": "image@file:///Users/lule/Downloads/compressedandhashed/boyfriend-jeans/IMG_2047.jpg"
-      }
-    ],
-    "name": "Rugged Denim Distressed Jeans",
-    "description": "Elevate your street style with these Rugged Denim Distressed Jeans. Featuring bold rips and a relaxed fit, they offer a perfect blend of comfort and edge. Ideal for casual outings or concerts, pair them with a graphic tee and sneakers for an effortlessly trendy look. Designed for those who love to stand out, these jeans are a must-have for your wardrobe.",
-    "productID": "87a233",
-    "productcategory": "boyfriend-jeans",
-    "imageHashes": [
-      {
-        "fileName": "IMG_2047.jpg",
-        "hash": "aadda15b39d39fdf4c3caea7d584bc5ec88574e55cef42da4e859beb7244e4d7"
-      }
-    ],
-    "supplier": {
-      "phonenumber": "+256759697007",
-      "whatsAppnumber": "+256759697007",
-      "wholesaleprice": "",
-      "location": "Ham shopping-grounds Block-T ",
-      "Friendliness": 5,
-      "source": "china-direct",
-      "capacity": 4,
-      "shippedFrom": "kampala",
-      "supplierId": ""
-    },
-    "price": 50000,
-    "originalPrice": 45000,
-    "_createdAt": "2024-09-29T19:16:52.251Z",
-    "_id": "55ac42e9-1121-4bdf-b222-ca94fa311038",
-    "_updatedAt": "2024-09-29T19:16:52.251Z",
-    "_type": "bulkproductuploads",
-    "dateofintroduction": "2024-09-29T19:16:52.251Z",
-    "readilyAvailable": true,
-    "downloadable": true,
-    "shippedFromkampala": false,
-    "availableInHouse": true,
-    "initialBatch": "true",
-    "subsquentBatch": "",
-    "comesWith": ""
-  },
-  {
-    "images": [
-      {
-        "_type": "image",
         "_sanityAsset": "image@file:///Users/lule/Downloads/compressedandhashed/boyfriend-jeans/IMG_2068.jpg"
       }
     ],

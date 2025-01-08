@@ -17,4 +17,4 @@ const client = createClient({
 
 // exporting const client to be used everywhere its needed !!
 // exporting const urlFor to be used everywhere its needed !!
-module.exports = client;
+export default  client;

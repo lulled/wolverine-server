@@ -18,3 +18,11 @@ export async function grabT_shirts(){
     return response;
 }
 grabT_shirts() ;
+
+export async function bulkproductuploads(){
+    const query = `*[_type == "bulkproductuploads"]{_id, _type, name,originalPrice,currentPrice,productcategory,  "imageUrl": images[].asset->url}`;
+    const fetch = await client.fetch(query);
+    const response = fetch;
+    return response;
+}
+bulkproductuploads() ;

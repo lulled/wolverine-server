@@ -1,10 +1,12 @@
+// Import necessary modules
 import { Elysia } from "elysia";
-import { justpull, grabT_shirts } from './fetch/fetch-sanity.mjs';
-import { cors } from '@elysiajs/cors'
+import { justpull, grabT_shirts, bulkproductuploads } from './fetch/fetch-sanity.mjs';
+import { cors } from '@elysiajs/cors';
+import { insertDataIntoMongoDB } from './fetch/centraltruth.mjs'; // Import the MongoDB function
 
 const DATA_FILE_PATH = './store_data.json';
 
-// Function to write data to file
+// Function to write data to file (optional, if you still want to keep this)
 async function writeDataToFile(data) {
   try {
     await Bun.write(DATA_FILE_PATH, JSON.stringify(data, null, 2));
@@ -15,7 +17,7 @@ async function writeDataToFile(data) {
   }
 }
 
-// Function to read data from file
+// Function to read data from file (optional, if you still want to keep this)
 async function readDataFromFile() {
   try {
     const file = Bun.file(DATA_FILE_PATH);
@@ -32,7 +34,7 @@ async function readDataFromFile() {
 
 const app = new Elysia()
   .use(cors({
-    origin: ['http://localhost:3000', 'https://wolverine-server.onrender.com', 'http://localhost'],
+    origin: ['http://localhost:3000', 'https://wolverine-server.onrender.com', 'http://localhost','http://localhost:3040','http://localhost:3002','http://localhost:8081/','http://localhost:8081'],
     methods: ['GET', 'POST', 'PUT', 'DELETE', 'OPTIONS'],
     allowedHeaders: ['Content-Type', 'Authorization'],
     credentials: true,
@@ -40,7 +42,7 @@ const app = new Elysia()
   .get("/", () => "Hello Elysia")
   .get("/api/data", async () => {
     try {
-      const data = await justpull();
+      const data = await bulkproductuploads();
       console.log('Data fetched from Sanity:', data);
       return { success: true, data };
     } catch (error) {
@@ -48,6 +50,7 @@ const app = new Elysia()
       return { success: false, error: error.message };
     }
   })
+  // Modify this to use MongoDB for storage
   .post("/api/receive-data", async ({ body, request }) => {
     console.log('Received request with method:', request.method);
     console.log('Headers:', JSON.stringify(request.headers, null, 2));
@@ -63,16 +66,16 @@ const app = new Elysia()
 
     console.log('Processed item count:', itemCount);
 
-    // Write data to file
+    // Save data to MongoDB
     try {
-      await writeDataToFile(body);
+      await insertDataIntoMongoDB(body); // Insert the received data into MongoDB
     } catch (error) {
-      console.error('Error writing data to file:', error);
+      console.error('Error saving data to MongoDB:', error);
       return { success: false, error: error.message };
     }
 
     return {
-      message: 'Data received, logged, and saved to file',
+      message: 'Data received, logged, and saved to MongoDB',
       itemCount: itemCount,
       bodyType: typeof body,
       isArray: Array.isArray(body),
