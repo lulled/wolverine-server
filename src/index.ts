@@ -2,35 +2,8 @@
 import { Elysia } from "elysia";
 import { justpull, grabT_shirts, bulkproductuploads } from './fetch/fetch-sanity.mjs';
 import { cors } from '@elysiajs/cors';
-import { insertDataIntoMongoDB } from './fetch/centraltruth.mjs'; // Import the MongoDB function
+import { insertDataIntoMongoDB,readAllDataFromCentraltruth } from './fetch/centraltruth.mjs'; // Import the MongoDB function
 
-//const DATA_FILE_PATH = './store_data.json';
-
-// // Function to write data to file (optional, if you still want to keep this)
-// async function writeDataToFile(data) {
-//   try {
-//     await Bun.write(DATA_FILE_PATH, JSON.stringify(data, null, 2));
-//     console.log('Data written to file successfully');
-//   } catch (error) {
-//     console.error('Error writing to file:', error);
-//     throw error;
-//   }
-// // }
-
-// // Function to read data from file (optional, if you still want to keep this)
-// async function readDataFromFile() {
-//   try {
-//     const file = Bun.file(DATA_FILE_PATH);
-//     if (await file.exists()) {
-//       const text = await file.text();
-//       return JSON.parse(text);
-//     }
-//     return null;
-//   } catch (error) {
-//     console.error('Error reading from file:', error);
-//     return null;
-//   }
-// }
 
 const app = new Elysia()
   .use(cors({
@@ -39,18 +12,18 @@ const app = new Elysia()
     allowedHeaders: ['Content-Type', 'Authorization'],
     credentials: true,
   }))
-  .get("/", () => "Hello Elysia")
-  .get("/api/data", async () => {
+  .get("/", () => "hello from Fashionate UG")
+  .get("/api/deployed", async () => {
     try {
       const data = await bulkproductuploads();
-      console.log('Data fetched from Sanity:', data);
+     // console.log('Data fetched from Sanity:', data);
       return { success: true, data };
     } catch (error) {
       console.error("Error fetching data:", error);
       return { success: false, error: error.message };
     }
   })
-  // Modify this to use MongoDB for storage
+  // storing data thas coming from local "hit-server" to mongo DB instance, self managed
   .post("/api/receive-data", async ({ body, request }) => {
     console.log('Received request with method:', request.method);
     console.log('Headers:', JSON.stringify(request.headers, null, 2));
@@ -83,15 +56,28 @@ const app = new Elysia()
       sampleData: Array.isArray(body) ? body.slice(0, 2) : body
     };
   })
-  .get("/api/stored-data", async () => {
+  // build Api routes that read, write ,update and delete from Central-truth
+
+  // fetch all data from CentralTruth-1 and make it Available  to wolverine Client 
+  .get("/api/centraltruth",async()=>{
     try {
-      const storedData = await readDataFromFile();
-      return { success: true, storedData };
+      const data = await readAllDataFromCentraltruth();
+      console.log('Data pulled from CentralTruth-1');
+      return { success: true, data };
     } catch (error) {
-      console.error("Error reading stored data:", error);
+      console.error("Error pulling data from  CentralTruth-1 :", error);
       return { success: false, error: error.message };
-    }
-  })
+
+  }
+ }
+ )
+ // post method for updating a single product json object 
+ .put("/api/updateitem",({body,request})=>{
+
+ })
+ //
+
+
   .listen(3001);
 
 console.log(`🦊 Elysia is running at ${app.server?.hostname}:${app.server?.port}`);
