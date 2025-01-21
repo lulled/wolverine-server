@@ -2,12 +2,12 @@
 import { Elysia } from "elysia";
 import { justpull, grabT_shirts, bulkproductuploads } from './fetch/fetch-sanity.mjs';
 import { cors } from '@elysiajs/cors';
-import { insertDataIntoMongoDB,readAllDataFromCentraltruth } from './fetch/centraltruth.mjs'; // Import the MongoDB function
-
+import { insertDataIntoMongoDB, readAllDataFromCentraltruth, deleteDocumentById_One, updateItemById } from './fetch/centraltruth.mjs'; // Import the MongoDB function
+import { ObjectId } from 'mongodb'; // Import ObjectId from the MongoDB driver
 
 const app = new Elysia()
   .use(cors({
-    origin: ['http://localhost:3000', 'https://wolverine-server.onrender.com', 'http://localhost','http://localhost:3040','http://localhost:3002','http://localhost:8081/','http://localhost:8081'],
+    origin: ['http://localhost:3000', 'https://wolverine-server.onrender.com', 'http://localhost', 'http://localhost:3040', 'http://localhost:3002', 'http://localhost:8081/', 'http://localhost:8081'],
     methods: ['GET', 'POST', 'PUT', 'DELETE', 'OPTIONS'],
     allowedHeaders: ['Content-Type', 'Authorization'],
     credentials: true,
@@ -16,7 +16,7 @@ const app = new Elysia()
   .get("/api/deployed", async () => {
     try {
       const data = await bulkproductuploads();
-     // console.log('Data fetched from Sanity:', data);
+      // console.log('Data fetched from Sanity:', data);
       return { success: true, data };
     } catch (error) {
       console.error("Error fetching data:", error);
@@ -30,7 +30,7 @@ const app = new Elysia()
     console.log('Body type:', typeof body);
     console.log('Is body an array?', Array.isArray(body));
     //console.log('Body:', JSON.stringify(body, null, 2));
-    
+
     let itemCount = 0;
     if (Array.isArray(body)) {
       itemCount = body.length;
@@ -59,7 +59,7 @@ const app = new Elysia()
   // build Api routes that read, write ,update and delete from Central-truth
 
   // fetch all data from CentralTruth-1 and make it Available  to wolverine Client 
-  .get("/api/centraltruth",async()=>{
+  .get("/api/centraltruth", async () => {
     try {
       const data = await readAllDataFromCentraltruth();
       console.log('Data pulled from CentralTruth-1');
@@ -67,17 +67,41 @@ const app = new Elysia()
     } catch (error) {
       console.error("Error pulling data from  CentralTruth-1 :", error);
       return { success: false, error: error.message };
+    }
+  })
+  // post method for updating a single product json object 
+  //  .put("/api/updateitem",async({body,request})=>{
+  //   try{
+  //     const updateItem = await updateItemById();
 
-  }
- }
- )
- // post method for updating a single product json object 
- .put("/api/updateitem",({body,request})=>{
+  //   } catch(error){
+  //     console.log("error updating item ",error);
+  //     return { success: false, error: error.message };
+  //   }
 
- })
- //
+  //  })
+  // delete One document
+  // DELETE endpoint to delete a document by ID
+  .delete('/api/deleteone', async ({ body }) => {
+    try {
+      const { id } = body;
 
+      if (!id || !ObjectId.isValid(id)) {
+        return { success: false, error: 'Invalid ID' };
+      }
 
+      const result = await deleteDocumentById_One(id);
+
+      if (result.success) {
+        return { success: true, message: result.message };
+      } else {
+        return { success: false, error: result.error || result.message };
+      }
+    } catch (error) {
+      console.error('Error in DELETE /api/deleteone:', error);
+      return { success: false, error: 'Internal server error' };
+    }
+  })
   .listen(3001);
 
 console.log(`🦊 Elysia is running at ${app.server?.hostname}:${app.server?.port}`);
