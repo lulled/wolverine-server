@@ -58,7 +58,7 @@ export async function readAllDataFromCentraltruth() {
     // Fetch all documents
     const cursor = collection.find({});
     const documents = await cursor.toArray();
-    console.log('Pulled all data from "CentralTruth-1"');
+   // console.log('Pulled all data from "CentralTruth-1"');
 
     // Return the fetched documents
     return documents;
@@ -67,8 +67,84 @@ export async function readAllDataFromCentraltruth() {
     return null;
   }
 }
+// Function to read a single document by ID
+export async function readDocumentById(id) {
+  try {
+    const database = await connectToDatabase();
+    const collection = database.collection("CentralTruth-1");
 
-// Function to delete a document by ID
+    console.log('Attempting to read document with ID:', id);
+
+    // Validate UUID format
+    if (!id || !isValidUUID(id)) {
+      console.log('Invalid UUID format:', id);
+      return { success: false, error: 'Invalid UUID format' };
+    }
+
+    // Create the query using the exact field structure
+    const query = { "_id": id };
+    console.log('Read query:', query);
+
+    // Attempt to find the document
+    const document = await collection.findOne(query);
+
+    if (document) {
+      console.log('Document found:', id);
+      return { 
+        success: true, 
+        data: document
+      };
+    } else {
+      console.log('Document not found:', id);
+      return { 
+        success: false, 
+        message: 'Document not found' 
+      };
+    }
+  } catch (error) {
+    console.error('Error reading document:', error);
+    return { 
+      success: false, 
+      error: `Database error: ${error.message}` 
+    };
+  }
+}
+
+// API endpoint handler for reading a single item
+export const readOneHandler = async ({ query }) => {
+  try {
+    const { id } = query;
+    
+    console.log('Received read request for ID:', id);
+
+    if (!id) {
+      return { success: false, error: 'ID is required' };
+    }
+
+    if (!isValidUUID(id)) {
+      return { success: false, error: 'Invalid ID format' };
+    }
+
+    const result = await readDocumentById(id);
+    console.log('Read operation result:', result);
+
+    if (result.success) {
+      return { 
+        success: true, 
+        data: result.data
+      };
+    } else {
+      return { 
+        success: false, 
+        error: result.error || result.message 
+      };
+    }
+  } catch (error) {
+    console.error('Error in GET /api/readone:', error);
+    return { success: false, error: 'Internal server error' };
+  }
+}
+// Function to delete a document by ID // i guess its deleting one 
 export async function deleteDocumentById_One(id) {
   try {
     const database = await connectToDatabase();
@@ -114,36 +190,6 @@ export async function deleteDocumentById_One(id) {
   }
 }
 
-// Function to update a single item by ID
-export async function updateItemById(id, updateData) {
-  try {
-    const database = await connectToDatabase();
-    const collection = database.collection("CentralTruth-1");
-
-    // Validate UUID
-    if (!id || !isValidUUID(id)) {
-      console.log('Invalid UUID:', id);
-      return { success: false, error: 'Invalid UUID format' };
-    }
-
-    // Create the query
-    const query = { "_id": id };
-
-    // Update the document
-    const result = await collection.updateOne(query, { $set: updateData });
-
-    if (result.modifiedCount === 1) {
-      console.log('Document updated successfully:', id);
-      return { success: true, message: 'Document updated successfully' };
-    } else {
-      console.log('No document found with the given ID:', id);
-      return { success: false, message: 'No document found with the given ID' };
-    }
-  } catch (error) {
-    console.error('Error updating document:', error);
-    return { success: false, error: error.message };
-  }
-}
 
 // API endpoint handler for delete operation
 export const deleteOneHandler = async ({ body }) => {
@@ -178,5 +224,37 @@ export const deleteOneHandler = async ({ body }) => {
   } catch (error) {
     console.error('Error in DELETE /api/deleteone:', error);
     return { success: false, error: 'Internal server error' };
+  }
+}
+
+//
+// Function to update a single item by ID
+export async function updateItemById(id, updateData) {
+  try {
+    const database = await connectToDatabase();
+    const collection = database.collection("CentralTruth-1");
+
+    // Validate UUID
+    if (!id || !isValidUUID(id)) {
+      console.log('Invalid UUID:', id);
+      return { success: false, error: 'Invalid UUID format' };
+    }
+
+    // Create the query
+    const query = { "_id": id };
+
+    // Update the document
+    const result = await collection.updateOne(query, { $set: updateData });
+
+    if (result.modifiedCount === 1) {
+      console.log('Document updated successfully:', id);
+      return { success: true, message: 'Document updated successfully' };
+    } else {
+      console.log('No document found with the given ID:', id);
+      return { success: false, message: 'No document found with the given ID' };
+    }
+  } catch (error) {
+    console.error('Error updating document:', error);
+    return { success: false, error: error.message };
   }
 }
