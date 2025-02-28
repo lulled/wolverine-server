@@ -2,7 +2,7 @@
 import { Elysia } from "elysia";
 import { justpull, grabT_shirts, bulkproductuploads } from './fetch/fetch-sanity.mjs';
 import { cors } from '@elysiajs/cors';
-import { insertDataIntoMongoDB, readAllDataFromCentraltruth,readDocumentById, deleteDocumentById_One, updateItemById } from './fetch/centraltruth.mjs'; // Import the MongoDB function
+import { insertDataIntoMongoDB, readAllDataFromCentraltruth,readDocumentById, deleteDocumentById_One, updateItemById,readRecentlyEditedItems } from './fetch/centraltruth.mjs'; // Import the MongoDB function
 import { ObjectId } from 'mongodb'; // Import ObjectId from the MongoDB driver
 
 const app = new Elysia()
@@ -163,6 +163,29 @@ const app = new Elysia()
       return { success: false, error: 'Internal server error' };
     }
   })
+
+  // read all recently edited 
+
+.get("/api/recent-edits", async () => {
+  try {
+    const result = await readRecentlyEditedItems();
+    
+    if (result.success) {
+      return { 
+        success: true, 
+        data: result.data 
+      };
+    } else {
+      return { 
+        success: false, 
+        error: result.error 
+      };
+    }
+  } catch (error) {
+    console.error("Error fetching recently edited items:", error);
+    return { success: false, error: 'Internal server error' };
+  }
+})
   .listen(3001);// changed it Temporarily  to 3007
 
 console.log(`🦊 Elysia is running at ${app.server?.hostname}:${app.server?.port}`);
